@@ -6,7 +6,8 @@ class auditd::params {
 
   $logsagent = undef
   $rules = 'puppet:///modules/auditd/audit.rules'
-
+  $manage_service = true
+  
   case $::osfamily {
     'Debian': {
       $package_name = 'auditd'

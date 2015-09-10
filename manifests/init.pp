@@ -40,6 +40,7 @@ class auditd (
   $rules            = $::auditd::params::rules,
   $package_name     = $::auditd::params::package_name,
   $restart_cmd      = $::auditd::params::restart_cmd,
+  $manage_service   = $::auditd::params::manage_service,
   $config_override  = {},
 ) inherits ::auditd::params {
 

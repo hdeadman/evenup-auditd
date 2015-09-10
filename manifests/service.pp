@@ -18,11 +18,12 @@ class auditd::service {
   if $caller_module_name != $module_name {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
-
-  service { 'auditd':
-    ensure  => 'running',
-    enable  => true,
-    restart => $::auditd::restart_cmd,
+  if $::auditd::manage_service {
+    service { 'auditd':
+      ensure  => 'running',
+      enable  => true,
+      restart => $::auditd::restart_cmd,
+    }
   }
 
 }
