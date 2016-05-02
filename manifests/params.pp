@@ -5,7 +5,7 @@
 class auditd::params {
 
   $logsagent = undef
-  $rules = 'puppet:///modules/auditd/audit.rules'
+  $rules = template('auditd/audit.rules.erb')
   $manage_service = true
   
   case $::osfamily {
